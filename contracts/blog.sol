@@ -1,8 +1,11 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
+//import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Blog{
+
+
+contract Blog {
     string public name;
     address public owner;
 
@@ -81,7 +84,7 @@ contract Blog{
         Post[] memory posts = new Post[](itemCount);
         for (uint i = 0; i < itemCount; i++) {
             uint currentId = i + 1;//cant start with a zero cos counters started with 1
-            Post storage currentItem = idToPost[currentId];//looks up the post by the uint id
+            Post storage currentItem = idToPost[currentId];//looks up the post by the uint id or indexed integer
             posts[currentIndex] = currentItem;//puts in the post object by there index starting from zero into the list
             currentIndex += 1;//increases the index by 1 after each loop
         }
